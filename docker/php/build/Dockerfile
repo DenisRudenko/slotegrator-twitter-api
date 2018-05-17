@@ -39,9 +39,6 @@ RUN apt-get update && apt-get install -y \
     && pecl install apcu-5.1.8 && echo extension=apcu.so > /usr/local/etc/php/conf.d/apcu.ini \
     && pecl install mongodb && echo extension=mongodb.so > /usr/local/etc/php/conf.d/mongodb.ini
 
-#COPY composer /usr/local/bin
-#RUN chmod 700 /usr/local/bin/composer
-
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
@@ -53,8 +50,6 @@ RUN composer global require --optimize-autoloader \
         "hirak/prestissimo:^0.3.7" && \
     composer global dumpautoload --optimize && \
     composer clear-cache
-
-#RUN composer global require --optimize-autoloader "fxp/composer-asset-plugin:^1.3.0"
 
 ARG GITHUB_TOKEN
 RUN composer config -g github-oauth.github.com $GITHUB_TOKEN
