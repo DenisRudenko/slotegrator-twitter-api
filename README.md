@@ -8,11 +8,11 @@ docker-compose up -d --build
 ```
 ## Step 2. Install composer dependency
 ```bash
-docker exec -it sloterator_php-fpm_1 composer install
+docker exec -it slotegrator_php-fpm_1 composer install
 ```
 ## Step 3. Run migration
 ```bash
-docker exec -it sloterator_php-fpm_1 ./yii migrate
+docker exec -it slotegrator_php-fpm_1 ./yii migrate
 ```
 
 # API methods
